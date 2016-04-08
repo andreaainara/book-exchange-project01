@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Book Exchange</title>
+
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/style.css">
+
+    <!-- VENDOR SCRIPTS -->
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+
+    <!-- APPLICATION SCRIPTS -->
+    <script src="scripts/app.js"></script>
+</head>
+
+<body>
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Welcome to Book Exchange</h1>
+
+        </div>
+    </div>
+
+    <!-- Intro -->
+
+    <div class="container" name="intro">
+        <h4>About Book Exchange</h4> </br>
+        <p>Hi! Welcome to Book Exchange! This is a simple online platform for the nostalgic tyoe too swap books and share each others' favourites!</p>
+        </br>
+        <h4>How This Works</h4></br>
+        <p><strong>"I wanna put my book out there!"</strong></p>
+        <ul>
+            <li>Click on the "Propose Swap" button to begin the process</li>
+            <li>Fill out the swap proposal form with whichever book you would like to swap with someone</li>
+            <li>Click "Submit"!</li>
+        </ul>
+        <p>It's that simple! Once you have submitted your form, it will show up in a scrollbox below, and if someone wants to swap a book with yours, they click on your proposal and the exchange begins!</p>
+        </br>
+
+        </br>
+        <p><strong>"Someone proposed a book I want to swap with, how do I swap with them?"</p></strong>
+            <ul>
+                <li>Click on the book in the "Open Proposals" scrollbox, this should pop up a form</li>
+                <li>Fill out the form with the book you'd like to swap with the one you chose and your name</li>
+                <li>Click "Submit!"</li>
+            </ul>
+            <p>Yup! You're all done! Now you can contact your swap-mate and get to exchanging! You can see the active exchanges in the box below the open ones!</p>
+            </br>
+
+    </div>
+
+    <!-- Open Exchanges -->
+    <div class="container" name="open-exchanges">
+        <section class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <h3>Open Exchanges</h3>
+                </div>
+            </div>
+            <!-- albums! -->
+            <div id='exchanges'>
+                <script id='exchange-template' type='text/x-handlebars-template'>
+                    <!-- one album -->
+                    <div class="row exchange">
+
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+
+
+                                    <!-- begin album internal row -->
+                                    <!-- <div class='row'>
+                    <div class="col-md-3 col-xs-12 thumbnail album-art">
+                      <img src="images/800x800.png" alt="album image">
+                    </div> -->
+
+                                    <div class="col-md-9 col-xs-12">
+                                        <ul class="list-group">
+                                            <li class="list-group-item">
+                                                <h4 class='inline-header'>Book Title:</h4>
+                                                <span class='book-title'>{{name}}</span>
+                                            </li>
+
+                                            <li class="list-group-item">
+                                                <h4 class='inline-header'>Author:</h4>
+                                                <span class='author-name'>{{authorName}}</span>
+                                            </li>
+
+                                            <li class="list-group-item">
+                                                <h4 class='inline-header'>Genre(s):</h4>
+                                                <span class='book-genre'>{{genre}}</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                                <!-- end of album internal row -->
+                            </div>
+                            <button class="btn btn-default" type="submit">Propose an Exchange</button>
+
+                            <!-- begin proposalModal: this is not visible until you call .modal() on it -->
+                            <div class="modal fade" tabindex="-1" role="dialog" id="proposalModal">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title">Create Book Exchange Proposal</h4>
+                                        </div>
+                                        <div class="modal-body">
+
+                                            <fieldset class='form-horizontal'>
+                                                <!-- Text input-->
+                                                <div class="form-group">
+                                                    <label class="col-md-4 control-label" for="bookTitle">Book Title</label>
+                                                    <div class="col-md-4">
+                                                        <input id="bookTitle" name="bookTitle" type="text" placeholder="" class="form-control input-md" required="">
+                                                    </div>
+                                                </div>
+
+                                                <!-- Text input-->
+                                                <div class="form-group">
+                                                    <label class="col-md-4 control-label" for="auuthorName">Author Name</label>
+                                                    <div class="col-md-4">
+                                                        <input id="authorName" name="authorName" type="text" placeholder="" class="form-control input-md">
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary" id="saveProposal">Save changes</button>
+                                        </div>
+                                    </div>
+                                    <!-- /.modal-content -->
+                                </div>
+                                <!-- /.modal-dialog -->
+                            </div>
+                            <!-- /.modal -->
+
+
+                            <!-- begin exchangeModal: this is not visible until you call .modal() on it -->
+                            <div class="modal fade" tabindex="-1" role="dialog" id="exchangeModal">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title">Respond to a Proposal</h4>
+                                        </div>
+                                        <div class="modal-body">
+
+                                            <fieldset class='form-horizontal'>
+                                                <!-- Text input-->
+                                                <div class="form-group">
+                                                    <label class="col-md-4 control-label" for="bookTitle">Book Title</label>
+                                                    <div class="col-md-4">
+                                                        <input id="bookTitle" name="bookTitle" type="text" placeholder="" class="form-control input-md" required="">
+                                                    </div>
+                                                </div>
+
+                                                <!-- Text input-->
+                                                <div class="form-group">
+                                                    <label class="col-md-4 control-label" for="auuthorName">Author Name</label>
+                                                    <div class="col-md-4">
+                                                        <input id="authorName" name="authorName" type="text" placeholder="" class="form-control input-md">
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary" id="saveResponse">Save changes</button>
+                                        </div>
+                                    </div>
+                                    <!-- /.modal-content -->
+                                </div>
+                                <!-- /.modal-dialog -->
+                            </div>
+                            <!-- /.modal -->
+
+</body>
