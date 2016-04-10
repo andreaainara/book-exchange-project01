@@ -1,0 +1,28 @@
+{
+  "name": "book-exchange",
+  "version": "1.0.0",
+  "description": "online book exchange kinda like a book club but cooler",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "book-exchange-project01"
+  },
+  "keywords": [
+    "books",
+    "exchanges",
+    "online",
+    "accept"
+  ],
+  "author": "Andrea Ceballos",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "mongoose": "^4.4.11"
+  },
+  "devDependencies": {}
+}
