@@ -53,7 +53,7 @@ function update(req, res) {
 //DELETE
 function destroy(req, res) {
   db.Exchange.findOneAndRemove({ _id: req.params.exchangeId }, function(err, foundExchange){
-    res.status(204).json(foundExchange);
+    res.status(204).send();
   });
 }
 
