@@ -83,7 +83,7 @@ $(document).ready(function() {
 //this function will render one exchange on the page
 function renderExchange(exchanges) {
     console.log('rendering exchange', exchanges);
-    var html = template({exchange: exchanges});
+    var html = template({exchanges: exchanges});
     // console.log(html);
     $('#exchanges').prepend(html);
 }
