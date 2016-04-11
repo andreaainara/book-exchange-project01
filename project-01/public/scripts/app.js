@@ -22,7 +22,7 @@ $(document).ready(function() {
     //save exchange modal save button
     $('#saveExchange').on('click', handleNewExchangeSubmit);
     $('#exchanges').on('click', '.delete-exchange', handleDeleteExchangeClick);
-    $('#exchanges').on('click', 'save-exchange', handleSaveExchangesClick);
+    $('#exchanges').on('click', 'save-exchange', handleSaveExchangeClick);
 
 
     function handleAddExchangeClick(e) {
@@ -61,23 +61,10 @@ $(document).ready(function() {
             $authorNameField.val();
             $bookGenreField.val();
         });
+      }
 
-        function handleDeleteExchangeClick(e) {
-            var exchangeId = $(this).parents('.exchange').data('exchange-id');
-            console.log('someone wants to delete exchange id=' + exchangeId);
-            $.ajax({
-                url: '/api/exchanges/' + exchangeId,
-                method: 'DELETE',
-                success: handleDeleteExchangeSuccess
-            });
-        }
 
         //callback after DELETE /api/exchanges/:is
-        function handleDeleteExchangeSuccess(data) {
-            var deletedExchangeId = data._id;
-            console.log('removing the following exchange from the page:', deletedExchangeId);
-            $('div[data-exchange-id=' + deletedExchangeId + ']').remove();
-        }
 
         // update the exchanges list
         $.get('/api/exchanges/' + exchangeId, function(data) {
@@ -88,6 +75,20 @@ $(document).ready(function() {
         }).error(function(err) {
             console.log('post to /api/exchanges/:exchangeId resulted in error', err);
         });
+
+    function handleDeleteExchangeClick(e) {
+      var exchangeId = $(this).parents('.exchange').data('exchange-id');
+      console.log('someone wants to delete exchange id=' + exchangeId);
+      $.ajax({
+        url: '/api/exchanges/' + exchangeId,
+        method: 'DELETE',
+        success: handleDeleteExchangeSuccess
+      });
+    }
+    function handleDeleteExchangeSuccess(data) {
+      var deletedExchangeId = data._id;
+      console.log('removing the following exchange from the page:', deletedExchangeId);
+      $('div[data-exchange-id=' + deletedExchangeId + ']').remove();
     }
 });
 
