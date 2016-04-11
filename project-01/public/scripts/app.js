@@ -12,7 +12,7 @@ $(document).ready(function() {
     $.get('/api/exchanges').success(function(exchanges) {
             renderExchange(exchanges);
     });
-    $('#exchang-form form').on('submit', function(e) {
+    $('#exchange-form form').on('submit', function(e) {
         e.preventDefault();
         var formData = $(this).serialize();
         $.post('/api/exchanges', formData, function(exchanges) {
