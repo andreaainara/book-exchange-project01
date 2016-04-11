@@ -26,7 +26,7 @@ $(document).ready(function() {
 
     //save exchange modal save button
     $('#saveExchange').on('click', handleNewExchangeSubmit);
-    // $('#exchanges').on('click', '.delete-exchange', handleDeleteAlbumClick);
+    $('#exchanges').on('click', '.delete-exchange', handleDeleteAlbumClick);
     // $('#exchanges').on('click', '.edit-exchange', handleExchangeEditClick);
     $('#exchanges').on('click', 'save-exchange', handleSaveExchangesClick);
 
