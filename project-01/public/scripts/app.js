@@ -3,6 +3,11 @@
 
 $(document).ready(function() {
     console.log('app.js loaded!');
+
+    var source = $('#exchange-template').html();
+    template = Handlebars.compile(source);
+
+
     $.get('/api/exchanges').success(function(exchanges) {
             renderExchange(exchanges);
     });
@@ -75,10 +80,8 @@ $(document).ready(function() {
 });
 
 //this function will render one exchange on the page
-function renderExchange(exchange) {
-    console.log('rendering exchange', exchange);
-    var exchangeHtml = $('#exchange-template').html();
-    var exchangesTemplate = Handlebars.compile(exchangeHtml);
-    var html = exchangesTemplate(exchange);
+function renderExchange(exchanges) {
+    console.log('rendering exchange', exchanges);
+    var html = template({exchange: exchanges});
     $('#exchanges').prepend(html);
 }

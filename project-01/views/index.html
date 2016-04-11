@@ -71,8 +71,7 @@
                     <p>
                         <b>{{name}}</b>: <em>{{name}}</em>
                         <b>{{#each books}} {{title}}</b> by {{author}}
-                        <br>
-                         {{/each}}
+                        <br> {{/each}}
                     </p>
 
                     <!-- one album -->
@@ -109,55 +108,55 @@
                                 </div>
                                 <!-- end of exchange internal row -->
                             </div> {{/each}}
-                </script>
-                </div>
-                </div>
-                <!-- handlebars template -->
+                        </div>
+                    </div>
+                    <!-- handlebars template -->
 
 
 
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-                    Activate Exchange
-                </button>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                        Activate Exchange
+                    </button>
 
-                <!-- Exchange Modal -->
-                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title" id="exchangeProposal">Exchange Proposal</h4>
-                            </div>
-                            <div class="modal-body" id="exchangeModal">
-                                <div class="row">
-                                    <div class="col-md-8 col-md-offset-2">
-                                        <form class="form-inline" id="swapForm">
-                                            <div class="form-group">
-                                                <label for="title">Exchanger </label>
-                                                <input type="text" class="form-control" id="exchangerName" placeholder="Your Name">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="title">Book </label>
-                                                <input type="text" class="form-control" id="bookTitle" placeholder="Book title">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="title">Author </label>
-                                                <input type="text" class="form-control" id="authorName" placeholder="Book author">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="title">Genre(s) </label>
-                                                <input type="text" class="form-control" id="bookGenre" placeholder="Book genre">
-                                            </div>
-                                            <br/>
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary" name="addExchange">Save Exchange</button>
+                    <!-- Exchange Modal -->
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="exchangeProposal">Exchange Proposal</h4>
+                                </div>
+                                <div class="modal-body" id="exchangeModal">
+                                    <div class="row">
+                                        <div class="col-md-8 col-md-offset-2">
+                                            <form class="form-inline" id="swapForm">
+                                                <div class="form-group">
+                                                    <label for="title">Exchanger </label>
+                                                    <input type="text" class="form-control" id="exchangerName" placeholder="Your Name">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="title">Book </label>
+                                                    <input type="text" class="form-control" id="bookTitle" placeholder="Book title">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="title">Author </label>
+                                                    <input type="text" class="form-control" id="authorName" placeholder="Book author">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="title">Genre(s) </label>
+                                                    <input type="text" class="form-control" id="bookGenre" placeholder="Book genre">
+                                                </div>
+                                                <br/>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary" name="addExchange">Save Exchange</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </script>
             </div>
 
             <!-- End Modal -->
