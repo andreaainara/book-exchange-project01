@@ -71,7 +71,8 @@
                         <div>
                           <hr>
                           <p>
-                              <b>{{name}}</b>: <em>Name</em>{{#each exchanges}} <b>{{book.title}}</b> by {{book.author}} {{/each}}
+                              <b>{{name}}</b>: <em>Name</em>
+                               <b>{{title}}</b> by {{author}}
                               <br>
                           </p>
                         </div>
@@ -85,9 +86,10 @@
                                             <li class="list-inline-item">
                                                 <span class='book-title'><strong>Exchanger:</strong> {{name}}</span>
                                             </li>
+                                            {{#each book}}
 
                                             <li class="list-inline-item">
-                                                <span class='book-title'><strong>Book Title:</strong> {{book.title}}</span>
+                                                <span class='book-title'><strong>Book Title:</strong> {{title}}</span>
                                             </li>
 
                                             <li class="list-inline-item">
@@ -95,8 +97,10 @@
                                             </li>
 
                                             <li class="list-inline-item">
-                                                <span class='book-genre'><strong>Genre(s):</strong> {{genre}}</span>
+                                                <span class='book-genre'><strong>Genre(s):</strong> </span>
                                             </li>
+                                            {{/each}}
+                                          {{/each}} 
                                         </ul>
                                         <div class="checkbox">
                                             <label>
@@ -106,7 +110,7 @@
                                     </div>
                                 </div>
                                 <!-- end of exchange internal row -->
-                            </div> {{/each}}
+
                         </div>
                     </div>
                   </script>

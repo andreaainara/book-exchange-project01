@@ -24,6 +24,8 @@ db.Exchange.remove({}, function(err, exchanges){
     if (err) { return console.log('ERROR', err); }
     console.log("all exchanges:", exchanges);
     console.log("created", exchanges.length, "exchanges");
+    // console.log(exchanges[0].book)
+    console.log(exchanges[0].book)
     process.exit();
   });
 });
