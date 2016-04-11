@@ -5,7 +5,7 @@ $(document).ready(function() {
     console.log('app.js loaded!');
 
     var source = $('#exchange-template').html();
-    console.log(source);
+    // console.log(source);
     template = Handlebars.compile(source);
 
 
@@ -29,7 +29,7 @@ $(document).ready(function() {
     $('#saveExchange').on('click', handleNewExchangeSubmit);
     // $('#exchanges').on('click', '.delete-exchange', handleDeleteAlbumClick);
     // $('#exchanges').on('click', '.edit-exchange', handleExchangeEditClick);
-    // $('exchanges').on('click', 'save-album', handleSaveExchangesClick);
+    $('#exchanges').on('click', 'save-exchange', handleSaveExchangesClick);
 
 
     function handleAddExchangeClick(e) {
@@ -84,6 +84,6 @@ $(document).ready(function() {
 function renderExchange(exchanges) {
     console.log('rendering exchange', exchanges);
     var html = template({exchange: exchanges});
-    console.log(html);
+    // console.log(html);
     $('#exchanges').prepend(html);
 }
