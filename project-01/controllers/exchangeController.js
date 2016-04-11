@@ -16,7 +16,7 @@ function create(req, res) {
   console.log('body', req.body);
 
   // split at comma and remove and trailing space
-  var genres = req.body.genres.split(',').map(function(item) { return item.trim(); } );
+  var genres = req.body.genres.split(', ').map(function(item) { return item.trim(); } );
   req.body.genres = genres;
 
   db.Exchange.create(req.body, function(err, album) {
@@ -41,7 +41,7 @@ function update(req, res) {
   db.Exchange.findById(req.params.exchangeId, function(err, foundExchange) {
     if(err) { console.log('exchangeController.update error', err); }
     foundExchange.name = req.body.name;
-    // foundExchange.book = req.body.book;
+    foundExchange.book = req.body.book; // Still not entirely sure if this is necessary due to the foundation of the data
     foundExchange.save(function(err, savedExchange) {
       if(err) { console.log('saving altered exchange failed'); }
       res.status(200).json(savedExchange);
