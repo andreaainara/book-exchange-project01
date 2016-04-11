@@ -26,7 +26,7 @@ $(document).ready(function() {
 
     //save exchange modal save button
     $('#saveExchange').on('click', handleNewExchangeSubmit);
-    $('#exchanges').on('click', '.delete-exchange', handleDeleteAlbumClick);
+    $('#exchanges').on('click', '.delete-exchange', handleDeleteExchangeClick);
     // $('#exchanges').on('click', '.edit-exchange', handleExchangeEditClick);
     $('#exchanges').on('click', 'save-exchange', handleSaveExchangesClick);
 
@@ -67,6 +67,23 @@ $(document).ready(function() {
             $authorNameField.val();
             $bookGenreField.val();
         });
+    function handleDeleteExchangeClick(e) {
+      var exchangeId = $(this).parents('.exchange').data('exchange-id');
+      console.log('someone wants to delete exchange id=' + exchangeId );
+      $.ajax({
+        url: '/api/exchanges/' + exchangeId,
+        method: 'DELETE',
+        success: handleDeleteExchangeSuccess
+      });
+    }
+
+    //callback after DELETE /api/exchanges/:is
+    function handleDeleteExchangeSuccess(data) {
+      var deletedExchangeId = data._id;
+      console.log('removing the following exchange from the page:', deletedExchangeId);
+      $('div[data-exchange-id=' + deletedExchangeId + ']').remove();
+    }
+
         // update the exchanges list
         $.get('/api/exchanges/' + exchangeId, function(data) {
             // remove current instance of the exchange from the page
