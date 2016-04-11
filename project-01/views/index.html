@@ -72,7 +72,7 @@
                           <hr>
                           <p>
                               <b>{{name}}</b>: <em>Name</em>
-                               <b>{{title}}</b> by {{author}}
+                               <b>{{title}}</b> by {{author}}, {{genre}}
                               <br>
                           </p>
                         </div>
@@ -97,10 +97,10 @@
                                             </li>
 
                                             <li class="list-inline-item">
-                                                <span class='book-genre'><strong>Genre(s):</strong> </span>
+                                                <span class='book-genre'><strong>Genre(s):</strong> {{genre}}</span>
                                             </li>
                                             {{/each}}
-                                          {{/each}} 
+                                          {{/each}}
                                         </ul>
                                         <div class="checkbox">
                                             <label>
