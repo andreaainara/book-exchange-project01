@@ -63,6 +63,8 @@ $(document).ready(function() {
         });
       }
 
+      function handleSaveExchangeClick(){}
+
 
         //callback after DELETE /api/exchanges/:is
 
