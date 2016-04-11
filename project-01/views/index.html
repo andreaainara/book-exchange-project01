@@ -65,17 +65,16 @@
             <!-- albums! -->
             <div id='exchanges'>
                 <script id='exchange-template' type='text/x-handlebars-template'>
-
-                    {{#each exchanges}}
-                    <hr>
-                    <p>
-                        <b>{{name}}</b>: <em>{{name}}</em>
-                        <b>{{#each books}} {{title}}</b> by {{author}}
-                        <br> {{/each}}
-                    </p>
-
                     <!-- one album -->
                     <div class="row exchange">
+                      {{#each exchanges}}
+                        <div>
+                          <hr>
+                          <p>
+                              <b>{{name}}</b>: <em>Name</em>{{#each exchanges}} <b>{{book.title}}</b> by {{book.author}} {{/each}}
+                              <br>
+                          </p>
+                        </div>
 
                         <div class="col-md-10 col-md-offset-1">
                             <div class="panel panel-default">
@@ -88,7 +87,7 @@
                                             </li>
 
                                             <li class="list-inline-item">
-                                                <span class='book-title'><strong>Book Title:</strong> {{title}}</span>
+                                                <span class='book-title'><strong>Book Title:</strong> {{book.title}}</span>
                                             </li>
 
                                             <li class="list-inline-item">
@@ -110,6 +109,8 @@
                             </div> {{/each}}
                         </div>
                     </div>
+                  </script>
+                </div>
                     <!-- handlebars template -->
 
 
@@ -156,8 +157,8 @@
                             </div>
                         </div>
                     </div>
-                </script>
-            </div>
+
+
 
             <!-- End Modal -->
 </body>

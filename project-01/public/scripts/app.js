@@ -5,6 +5,7 @@ $(document).ready(function() {
     console.log('app.js loaded!');
 
     var source = $('#exchange-template').html();
+    console.log(source);
     template = Handlebars.compile(source);
 
 
@@ -14,9 +15,9 @@ $(document).ready(function() {
     $('#exchang-form form').on('submit', function(e) {
         e.preventDefault();
         var formData = $(this).serialize();
-        $.post('/api/exchanges', formData, function(exchange) {
-            console.log('exchange after POST', exchange);
-            renderExchange(exchange); // rendering the server's response
+        $.post('/api/exchanges', formData, function(exchanges) {
+            console.log('exchange after POST', exchanges);
+            renderExchange(exchanges); // rendering the server's response
         });
         $(this).trigger("reset");
     });
@@ -56,7 +57,7 @@ $(document).ready(function() {
             bookGenre: $bookGenreField.val()
         };
         var exchangeId = $modal.data('exchangeId');
-        console.log('retrieved exchangerName:', exchangerName, ' and bookTitle:', bookTitle, ' and authorName:', authorName, 'and bookGenre:', bookGenre, 'for exchange w/ id: ', exchangeId);
+        console.log('retrieved exchangerName:', name, ' and bookTitle:', title, ' and authorName:', authorName, 'and bookGenre:', genre, 'for exchange w/ id: ', exchangeId);
         //POST to SERVER
         var exchangePostToServerUrl = '/api/exchanges' + exchangeId;
         $.post(exchangePostToServerUrl, dataToPost, function(data) {
@@ -83,5 +84,6 @@ $(document).ready(function() {
 function renderExchange(exchanges) {
     console.log('rendering exchange', exchanges);
     var html = template({exchange: exchanges});
+    console.log(html);
     $('#exchanges').prepend(html);
 }
