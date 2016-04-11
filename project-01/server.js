@@ -28,9 +28,12 @@ app.get('/', function homepage (req, res) {
 
 app.get('/api', controllers.api.index);
 
-app.get('/api/exchanges', controllers.exchange.index);
-app.post('/api/exchanges', controllers.exchange.create);
-// app.get('/api/books', controllers.books.index);
+app.get('/api/exchanges', controllers.exchanges.index);
+app.get('/api/exchanges/:exchangeId', controllers.exchanges.show);
+app.post('/api/exchanges', controllers.exchanges.create);
+app.delet('/api/exchanges/:exchangeId', controllers.exchanges.destroy);
+app.put('/api/exchanges/:exchangeId', controllers.exchanges.update);
+
 
 
 /**********
