@@ -79,21 +79,10 @@ $(document).ready(function() {
             $('div[data-exchange-id=' + deletedExchangeId + ']').remove();
         }
 
-        //this function will render one exchange on the page
-        function renderExchange(exchanges) {
-            console.log('rendering exchange', exchanges);
-            var source = $('#exchange-template').html();
-            var template = Handlebars.compile(source);
-            var html = template({
-                exchanges: exchanges
-            });
-            $('#exchanges').prepend(html);
-        }
-
         // update the exchanges list
         $.get('/api/exchanges/' + exchangeId, function(data) {
             // remove current instance of the exchange from the page
-            $('[data-exchange-id=' + exchangeId + ']').remove();
+            $('[data-exchange-id=' + exchangeId + ']').remove(); //this needs to be fixed
             //re-render with new exchange
             renderExchange(data);
         }).error(function(err) {
@@ -101,3 +90,12 @@ $(document).ready(function() {
         });
     }
 });
+
+//this function will render one exchange on the page
+function renderExchange(exchanges) {
+    console.log('rendering exchange', exchanges);
+    var source = $('#exchange-template').html();
+    var template = Handlebars.compile(source);
+    var html = template({exchanges: exchanges});
+    $('#exchanges').prepend(html);
+}
