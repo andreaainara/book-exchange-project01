@@ -4,9 +4,7 @@
 $(document).ready(function() {
     console.log('app.js loaded!');
     $.get('/api/exchanges').success(function(exchanges) {
-        exchanges.forEach(function(exchange) {
-            renderExchange(exchange);
-        });
+            renderExchange(exchanges);
     });
     $('#exchang-form form').on('submit', function(e) {
         e.preventDefault();
