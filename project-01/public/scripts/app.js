@@ -1,8 +1,13 @@
 //CLIENT SIDE APP.JS
 $(document).ready(function() {
     console.log('app.js loaded!');
+    var exchangesList = [];
+    var source = $('#exchange-template').html();
+    var template = Handlebars.compile(source);
+
     $.get('/api/exchanges').success(function(exchanges) {
-        renderExchange(exchanges);
+        exchangesList = exchanges;
+        renderExchange(exchanges, template);
     });
 
     // $('#exchange-form form').on('submit', function(e) {
@@ -54,17 +59,18 @@ $(document).ready(function() {
         //POST to SERVER
         $.post('/api/exchanges', dataToPost, function(data) {
             console.log('received data from post to /exchanges:', data);
+            exchangesList.push(data);
             // clear form
             $exchangerNameField.val();
             $bookTitleField.val();
             $authorNameField.val();
             $bookGenreField.val();
+
+            renderExchange(exchangesList, template);
         });
 
         $('#myModal').modal('hide');
-        $('#myModal').on('hidden.bs.modal', function () {
-          location.reload();
-        });
+
       }
 
 
@@ -95,10 +101,9 @@ $(document).ready(function() {
 });
 
 //this function will render one exchange on the page
-function renderExchange(exchanges) {
+function renderExchange(exchanges, template) {
     console.log('rendering exchange', exchanges);
-    var source = $('#exchange-template').html();
-    var template = Handlebars.compile(source);
+    $('#exchanges').empty();
     var html = template({exchanges: exchanges});
     $('#exchanges').prepend(html);
 }

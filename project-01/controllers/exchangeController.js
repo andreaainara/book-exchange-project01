@@ -20,10 +20,10 @@ function create(req, res) {
   var genres = req.body.genre.split(', ').map(function(item) { return item.trim(); } );
   req.body.genre = genres;
 
-  db.Exchange.create(req.body, function(err, exchange) {
+  db.Exchange.create(req.body, function(err, exchanges) {
     if (err) { console.log('error', err); }
-    console.log(exchange);
-    res.status(200).json(exchange);
+    console.log(exchanges);
+    res.status(200).json(exchanges);
   });
 }
 
