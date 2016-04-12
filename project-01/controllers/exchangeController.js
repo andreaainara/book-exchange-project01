@@ -37,6 +37,15 @@ function show(req, res) {
   });
 }
 
+// DELETE
+function destroy(req, res) {
+  db.Exchange.findOneAndRemove({ _id: req.params.exchangeId }, function(err, foundExchange){
+    console.log(err);
+    console.log(foundExchange);
+    res.json(foundExchange);
+  });
+}
+
 // UPDATE
 function update(req, res) {
   console.log('updating with data', req.body);
@@ -48,16 +57,6 @@ function update(req, res) {
       if(err) { console.log('saving altered exchange failed'); }
       res.status(200).json(savedExchange);
     });
-  });
-}
-
-
-//DELETE
-function destroy(req, res) {
-  db.Exchange.findOneAndRemove({ _id: req.params.exchangeId }, function(err, foundExchange){
-    console.log(err);
-    console.log(foundExchange);
-    res.json(foundExchange);
   });
 }
 
