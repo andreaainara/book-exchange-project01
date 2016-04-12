@@ -62,8 +62,8 @@ $(document).ready(function() {
         });
 
         $('#myModal').modal('hide');
-        $('#myModal').on('hidden', function () {
-          document.location.reload();
+        $('#myModal').on('hidden.bs.modal', function () {
+          location.reload();
         });
       }
 
