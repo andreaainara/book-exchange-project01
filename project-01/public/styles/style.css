@@ -1,0 +1,25 @@
+.jumbotron {
+  background-image: url('/images/books.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: maroon;
+}
+.jumbotron .container {
+  height: 400px;
+}
+
+.scrollbox .container {
+height: 500px;
+border-color: black;
+overflow-y: scroll;
+}
+.button {
+  float: left;
+}
+.textChange {
+  font-style: strikethrough;
+  color: red;
+}
+/*body {
+  width: 600px;
+}*/
