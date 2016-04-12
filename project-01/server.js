@@ -31,7 +31,7 @@ app.get('/api', controllers.api.index);
 app.get('/api/exchanges', controllers.exchanges.index);
 app.get('/api/exchanges/:exchangeId', controllers.exchanges.show);
 app.post('/api/exchanges', controllers.exchanges.create);
-app.delet('/api/exchanges/:exchangeId', controllers.exchanges.destroy);
+app.delete('/api/exchanges/:exchangeId', controllers.exchanges.destroy);
 app.put('/api/exchanges/:exchangeId', controllers.exchanges.update);
 
 
