@@ -23,6 +23,7 @@ function create(req, res) {
   db.Exchange.create(req.body, function(err, exchange) {
     if (err) { console.log('error', err); }
     console.log(exchange);
+    db.Exchange.save();
     res.status(200).json(exchange);
   });
 }
