@@ -1,5 +1,5 @@
 .jumbotron {
-  /*background-image: url(/images/books.jpeg);*/
+  background-image: url(/images/books.jpeg);
   background-size: cover;
   background-repeat: no-repeat;
   color: maroon;
@@ -16,9 +16,13 @@ height: 500px;
 border-color: black;
 overflow-y: scroll;
 }
-/*.button {
+.button {
   float: left;
-}*/
+}
+.textChange {
+  font-style: strikethrough;
+  color: red;
+}
 /*body {
   width: 600px;
 }*/
