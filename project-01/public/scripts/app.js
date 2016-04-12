@@ -60,7 +60,13 @@ $(document).ready(function() {
             $authorNameField.val();
             $bookGenreField.val();
         });
+
+        $('#myModal').modal('hide');
+        $('#myModal').on('hidden', function () {
+          document.location.reload();
+        });
       }
+
 
       // function handleSaveExchangeClick(exchangeId) {
       //
