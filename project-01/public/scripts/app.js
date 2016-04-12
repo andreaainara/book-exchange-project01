@@ -94,8 +94,8 @@ $(document).ready(function() {
         success: handleDeleteExchangeSuccess
       });
     }
-    function handleDeleteExchangeSuccess(foo) {
-      console.log('poopypants', foo);
+    function handleDeleteExchangeSuccess(data) {
+      console.log('poopypants', data);
       var deletedExchangeId = data._id;
       console.log('removing the following exchange from the page:', deletedExchangeId);
       $('div[data-exchange-id=' + deletedExchangeId + ']').remove();
