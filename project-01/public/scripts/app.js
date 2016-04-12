@@ -75,7 +75,6 @@ $(document).ready(function() {
 
       }
 
-
       // function handleSaveExchangeClick(exchangeId) {
       //
       // }
@@ -87,7 +86,7 @@ $(document).ready(function() {
 
 
     function handleDeleteExchangeClick(e) {
-      var exchangeId = $(this).parents('.exchange').data('exchange-id');
+      var exchangeId = $(this).closest('button').data('exchange-id');
       console.log('someone wants to delete exchange id=' + exchangeId);
       $.ajax({
         url: '/api/exchanges/' + exchangeId,
@@ -95,7 +94,8 @@ $(document).ready(function() {
         success: handleDeleteExchangeSuccess
       });
     }
-    function handleDeleteExchangeSuccess(data) {
+    function handleDeleteExchangeSuccess(foo) {
+      console.log('poopypants', foo);
       var deletedExchangeId = data._id;
       console.log('removing the following exchange from the page:', deletedExchangeId);
       $('div[data-exchange-id=' + deletedExchangeId + ']').remove();
