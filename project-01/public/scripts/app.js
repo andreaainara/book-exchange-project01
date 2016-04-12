@@ -95,7 +95,7 @@ $(document).ready(function() {
       });
     }
     function handleDeleteExchangeSuccess(data) {
-      console.log('poopypants', data);
+      console.log('au revoir!', data);
       var deletedExchangeId = data._id;
       console.log('removing the following exchange from the page:', deletedExchangeId);
       $('div[data-exchange-id=' + deletedExchangeId + ']').remove();
