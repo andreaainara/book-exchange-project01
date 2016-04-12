@@ -25,9 +25,9 @@ $(document).ready(function() {
     $('#add-button').on('click', handleNewExchangeSubmit);
 
     //save exchange modal save button
-    // $('#saveExchange').on('click', '.addExchange', handleNewExchangeSubmit);
+    $('#exchanges').on('click', '.edit-exchange', handleEditExchangeClick);
     $('#exchanges').on('click', '.delete-exchange', handleDeleteExchangeClick);
-    $('#exchanges').on('click', 'save-exchange', handleSaveExchangeClick);
+    $('#exchanges').on('click', 'save-exchange', handleSaveChangesClick);
 
 
     function handleAddExchangeClick(e) {
@@ -75,7 +75,7 @@ $(document).ready(function() {
 
       }
 
-      // function handleSaveExchangeClick(exchangeId) {
+      // function handleSaveChangesClick(exchangeId) {
       //
       // }
 
@@ -109,3 +109,10 @@ function renderExchange(exchanges, template) {
     var html = template({exchanges: exchanges});
     $('#exchanges').prepend(html);
 }
+$("input[type='checkbox']").change(function(){
+    if($(this).is(":checked")){
+        $(this).parent().addClass("textChange");
+    }else{
+        $(this).parent().removeClass("textChange");  
+    }
+});
