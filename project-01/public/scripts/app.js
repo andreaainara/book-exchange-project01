@@ -50,9 +50,11 @@ $(document).ready(function() {
         // get data from modal fields
         var dataToPost = {
             name: $exchangerNameField.val(),
-            title: $bookTitleField.val(),
-            author: $authorNameField.val(),
-            genre: $bookGenreField.val()
+            book: {
+              title: $bookTitleField.val(),
+              author: $authorNameField.val(),
+              genre: $bookGenreField.val()
+            }
         };
         console.log(dataToPost);
 

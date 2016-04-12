@@ -14,16 +14,16 @@ function index(req, res) {
 // CREATE
 function create(req, res) {
   console.log('body', req.body);
-  console.log(req.body.genre);
+  console.log(req.body.book.genre);
 
   // split at comma and remove and trailing space
-  var genres = req.body.genre.split(', ').map(function(item) { return item.trim(); } );
-  req.body.genre = genres;
+  var genres = req.body.book.genre.split(', ').map(function(item) { return item.trim(); } );
+  req.body.book.genre = genres;
 
-  db.Exchange.create(req.body, function(err, exchanges) {
+  db.Exchange.create(req.body, function(err, exchange) {
     if (err) { console.log('error', err); }
-    console.log(exchanges);
-    res.status(200).json(exchanges);
+    console.log(exchange);
+    res.status(200).json(exchange);
   });
 }
 

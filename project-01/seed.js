@@ -3,19 +3,19 @@ var db = require("./models");
 var exchangesList = [];
 exchangesList.push({
   name: 'Jane Doe',
-  book: [{
+  book: {
     title: 'The Shape of the Water',
     author: 'Andrea Camilleri',
     genre: ['mystery', 'crime']
-  }]
+  }
 });
 exchangesList.push({
   name: 'John Smith',
-  book: [{
+  book: {
     title: 'The Shining Girls',
     author: 'Lauren Beukes',
     genre: ['crime', 'mystery', 'suspense', 'thriller']
-  }]
+  }
 });
 
 db.Exchange.remove({}, function(err, exchanges){

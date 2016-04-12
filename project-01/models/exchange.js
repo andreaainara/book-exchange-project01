@@ -5,7 +5,7 @@ var Book = require('./books');
 
 var ExchangeSchema = new Schema ({
   name: String,
-  book: [Book.schema]
+  book: Book.schema
 });
 
 var Exchange = mongoose.model('Exchange', ExchangeSchema);
