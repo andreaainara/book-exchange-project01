@@ -73,13 +73,14 @@ function handleDeleteExchangeClick(e) {
         method: 'DELETE',
         success: handleDeleteExchangeSuccess
     });
-}
 
-function handleDeleteExchangeSuccess(data) {
-    console.log('au revoir!', data);
-    var deletedExchangeId = data._id;
-    console.log('removing the following exchange from the page:', deletedExchangeId);
-    $('div[data-exchange-id=' + deletedExchangeId + ']').remove();
+
+    function handleDeleteExchangeSuccess(data) {
+        console.log('au revoir!', data);
+        var deletedExchangeId = data._id;
+        console.log('removing the following exchange from the page:', deletedExchangeId);
+        $('div[data-exchange-id=' + deletedExchangeId + ']').remove();
+    }
 }
 
 
