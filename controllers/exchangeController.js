@@ -46,19 +46,19 @@ function destroy(req, res) {
   });
 }
 
-// // UPDATE
-// function update(req, res) {
-//   console.log('updating with data', req.body);
-//   db.Exchange.findById(req.params.exchangeId, function(err, foundExchange) {
-//     if(err) { console.log('exchangeController.update error', err); }
-//     foundExchange.name = req.body.name;
-//     foundExchange.book = req.body.book; // Still not entirely sure if this is necessary due to the foundation of the data
-//     foundExchange.save(function(err, savedExchange) {
-//       if(err) { console.log('saving altered exchange failed'); }
-//       res.status(200).json(savedExchange);
-//     });
-//   });
-// }
+// UPDATE
+function update(req, res) {
+  console.log('updating with data', req.body);
+  db.Exchange.findById(req.params.exchangeId, function(err, foundExchange) {
+    if(err) { console.log('exchangeController.update error', err); }
+    foundExchange.name = req.body.name;
+    foundExchange.book = req.body.book; // Still not entirely sure if this is necessary due to the foundation of the data
+    foundExchange.save(function(err, savedExchange) {
+      if(err) { console.log('saving altered exchange failed'); }
+      res.status(200).json(savedExchange);
+    });
+  });
+}
 
 module.exports = {
   index: index,
