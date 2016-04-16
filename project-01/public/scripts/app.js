@@ -22,7 +22,7 @@ $(document).ready(function() {
 
 function handleEditExchangeClick(e) {
     $('#exchange-checkbox').prop('checked', true);
-    $.uniform.update();
+    $.closest.update();
     $('#exchangeModal').data('exchange-id', currentExchangeId);
     $('#exchangeModal').modal();
 }
@@ -61,7 +61,6 @@ function handleNewExchangeSubmit(e) {
     });
 
     $('#myModal').modal('hide');
-
 }
 
 function handleDeleteExchangeClick(e) {
@@ -78,7 +77,6 @@ function handleDeleteExchangeSuccess(data) {
     console.log('au revoir!', data);
     var deletedExchangeId = data._id;
     console.log('removing the following exchange from the page:', deletedExchangeId);
-    $('div[data-exchange-id=' + deletedExchangeId + ']').remove();
 }
 
 
