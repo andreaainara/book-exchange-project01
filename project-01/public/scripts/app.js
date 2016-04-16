@@ -20,12 +20,11 @@ $(document).ready(function() {
 
 });
 
-function handleAddExchangeClick(e) {
-    console.log('add-exchange clicked!');
-    // // // var currentExchangeId = $(this).closest('.addExchange').data('exchange-id');
-    // // // console.log('id', currentExchangeId);
-    // // $('#exchangeModal').data('exchange-id', currentExchangeId);
-    // $('#exchangeModal').modal();
+function handleEditExchangeClick(e) {
+    $('#exchange-checkbox').prop('checked', true);
+    $.uniform.update();
+    $('#exchangeModal').data('exchange-id', currentExchangeId);
+    $('#exchangeModal').modal();
 }
 
 // when the exchange modal submit button is clicked
@@ -92,5 +91,3 @@ function renderExchange(exchanges, template) {
     });
     $('#exchanges').prepend(html);
 }
-$('#checkbox').prop('checked', true);
-$.uniform.update();
