@@ -64,7 +64,7 @@ function handleNewExchangeSubmit(e) {
 }
 
 function handleDeleteExchangeClick(e) {
-    var exchangeId = $(this).closest('button').data('exchange-id');
+    var exchangeId = $(this).closest('.exchange').data('exchange-id');
     console.log('someone wants to delete exchange id=' + exchangeId);
     $.ajax({
         url: '/api/exchanges/' + exchangeId,
