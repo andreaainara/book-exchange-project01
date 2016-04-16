@@ -71,14 +71,15 @@ function handleDeleteExchangeClick(e) {
         method: 'DELETE',
         success: handleDeleteExchangeSuccess
     });
-}
 
-function handleDeleteExchangeSuccess(data) {
-    console.log('au revoir!', data);
-    var deletedExchangeId = data._id;
-    console.log('removing the following exchange from the page:', deletedExchangeId);
-}
 
+    function handleDeleteExchangeSuccess(data) {
+        console.log('au revoir!', data);
+        var deletedExchangeId = data._id;
+        console.log('removing the following exchange from the page:', deletedExchangeId);
+        $('div[data-exchange-id=' + deletedExchangeId + ']').remove();
+    }
+}
 
 //this function will render one exchange on the page
 function renderExchange(exchanges, template) {
