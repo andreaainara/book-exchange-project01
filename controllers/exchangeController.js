@@ -41,7 +41,7 @@ function show(req, res) {
 function destroy(req, res) {
   db.Exchange.findOneAndRemove({ _id: req.params.exchangeId }, function(err, foundExchange){
     console.log(err);
-    console.log(foundExchange);
+    console.log('foo', foundExchange);
     res.json(foundExchange);
   });
 }
