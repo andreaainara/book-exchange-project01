@@ -1,7 +1,8 @@
 .jumbotron {
-  background-image: url(../images/books.jpg);
+  background-image: url("https://cdn.shopify.com/s/files/1/0172/1910/products/IdealBookshelf855p_Modernism_1024x1024.jpg?v=1428272734");
   background-size: cover;
   background-repeat: no-repeat;
+  margin-top: 0 auto;
   color: maroon;
 }
 .jumbotron .container {

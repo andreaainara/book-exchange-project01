@@ -14,7 +14,7 @@ $(document).ready(function() {
     $('#add-button').on('click', handleNewExchangeSubmit);
 
     //i want dis button click listner
-    $('#_id').on('click', handleEditExchangeClick);
+    $('#edit-exchange').on('click', handleEditExchangeClick);
 
     // $('#exchanges').on('click', '.edit-exchange', handleEditExchangeClick);
     $('#exchanges').on('click', '.delete-exchange', handleDeleteExchangeClick);
@@ -59,10 +59,9 @@ $(document).ready(function() {
     }
 });
 
-
   function handleEditExchangeClick(e) {
     e.preventDefault();
-    // $('.panel-body').css('background-color', 'green');
+    $('.panel-body').css('background-color', 'green');
     console.log('yay! someone clicked me!');
   }
 
